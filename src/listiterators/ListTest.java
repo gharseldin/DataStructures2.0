@@ -1,16 +1,41 @@
+package listiterators;
+
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
-public class ArrayListTest {
+@RunWith (value = Parameterized.class)
+public class ListTest {
 
-    ArrayList<Integer> list;
+    List<Integer> list;
+
+    @Parameterized.Parameter
+    public ImplementationType type;
+
+
+    @Parameterized.Parameters(name = "{index} - Implementation type {0}")
+    public static Object[] testingParameters(){
+        return new Object[]{
+                ImplementationType.ARRAY,
+                ImplementationType.LINKED_LIST
+        };
+    }
 
     @Before
     public void setup() {
-        list = new ArrayList<>(10);
+
+        switch (type){
+            case ARRAY:
+                list = new ArrayList<>(10);
+                break;
+            case LINKED_LIST:
+                //Nothing for now
+
+        }
     }
 
     @Test

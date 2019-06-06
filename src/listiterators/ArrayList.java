@@ -1,3 +1,5 @@
+package listiterators;
+
 public class ArrayList<E> implements List<E> {
 
     public static final int CAPACITY = 16;

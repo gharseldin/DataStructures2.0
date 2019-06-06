@@ -1,6 +1,6 @@
 package linkedlists;
 
-public enum ImplementationType {
+enum ImplementationType {
     STANDARD,
     CIRCULAR,
     DOUBLY

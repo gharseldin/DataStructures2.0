@@ -1,14 +1,14 @@
-import javafx.geometry.Pos;
+package listiterators;
 
 public interface PositionalList<E> {
 
-    E first();
+    Position<E> first();
 
-    E last();
+    Position<E> last();
 
-    E before(Position p) throws IllegalArgumentException;
+    Position<E> before(Position p) throws IllegalArgumentException;
 
-    E after(Position p) throws IllegalArgumentException;
+    Position<E> after(Position p) throws IllegalArgumentException;
 
     boolean isEmpty();
 
