@@ -33,7 +33,8 @@ public class ListTest {
                 list = new ArrayList<>(10);
                 break;
             case LINKED_LIST:
-                //Nothing for now
+            default:
+                list = new ArrayList<>(10);
 
         }
     }
@@ -103,5 +104,20 @@ public class ListTest {
         int temp = list.remove(0);
         assertEquals(true, list.isEmpty());
         assertEquals(temp, 15);
+    }
+
+    @Test
+    public void iteratorWorksAsExpected(){
+        for(int i=0; i<10; i++){
+            list.add(i, i);
+        }
+
+        String result = "";
+
+        for(int i: list){
+            result+=i;
+        }
+
+        assertEquals("0123456789", result);
     }
 }

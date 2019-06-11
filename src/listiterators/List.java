@@ -1,6 +1,6 @@
 package listiterators;
 
-public interface List<E> {
+public interface List<E> extends Iterable<E> {
 
     int size();
 
