@@ -26,4 +26,5 @@ public interface PositionalList<E> {
 
     E remove(Position<E> p) throws IllegalArgumentException;
 
+    Iterable<Position<E>> positions();
 }
