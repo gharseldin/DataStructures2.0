@@ -3,7 +3,9 @@ package trees;
 import listiterators.Position;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public abstract class AbstractBinaryTree<E> extends AbstractTree<E> implements BinaryTree<E> {
 
@@ -35,5 +37,38 @@ public abstract class AbstractBinaryTree<E> extends AbstractTree<E> implements B
         return snapshot;
     }
 
+    public Iterable<Position<E>> breadthfirst(){
+        List<Position<E>> snapshot = new ArrayList<>();
+        if(!isEmpty()){
+            Queue<Position<E>> fringe = new LinkedList<>();
+            fringe.offer(root());
+            while(!fringe.isEmpty()){
+                Position<E> p = fringe.poll();
+                snapshot.add(p);
+                for(Position<E> c: children(p))
+                    fringe.offer(c);
+            }
+        }
+        return snapshot;
+    }
+
+    private void inorderSubtree(Position<E> p, List<Position<E>> snapshot){
+        if(left(p) != null)
+            inorderSubtree(left(p), snapshot);
+        snapshot.add(p);
+        if(right(p) !=null)
+            inorderSubtree(right(p), snapshot);
+    }
+
+    public Iterable<Position<E>> inorder(){
+        List<Position<E>> snapshot = new ArrayList<>();
+        if(!isEmpty())
+            inorderSubtree(root(), snapshot);
+        return snapshot;
+    }
+
+    public Iterable<Position<E>> positions(){
+        return inorder();
+    }
 
 }
