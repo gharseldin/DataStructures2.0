@@ -32,6 +32,10 @@ public abstract class AbstractHashMap<K, V> extends AbstractMap<K, V> {
         return n;
     }
 
+    public boolean isEmpty() {
+        return n == 0;
+    }
+
     public V get(K key) {
         return bucketGet(hashValue(key), key);
     }
