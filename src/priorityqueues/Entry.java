@@ -1,6 +1,8 @@
 package priorityqueues;
 
-public interface Entry<K,V> {
+public interface Entry<K, V> {
     K getKey();
+
     V getValue();
+
 }

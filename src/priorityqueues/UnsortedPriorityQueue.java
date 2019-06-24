@@ -33,8 +33,8 @@ public class UnsortedPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
         return newest;
     }
 
-    public Entry<K,V> min(){
-        if(list.isEmpty())return null;
+    public Entry<K, V> min() {
+        if (list.isEmpty()) return null;
         return findMin().getElement();
     }
 
