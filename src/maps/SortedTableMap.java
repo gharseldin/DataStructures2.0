@@ -24,7 +24,7 @@ public class SortedTableMap<K, V> extends AbstractSortedMap<K, V> {
         int mid = (low + high) / 2;
         int comp = compare(key, table.get(mid));
         if (comp == 0)
-            return findIndex(key, table.get(mid));
+            return mid;
         else if (comp < 0)
             return findIndex(key, low, mid - 1);
         else
@@ -37,6 +37,10 @@ public class SortedTableMap<K, V> extends AbstractSortedMap<K, V> {
 
     public int size() {
         return table.size();
+    }
+
+    public boolean isEmpty(){
+        return table.size() == 0;
     }
 
     public V get(K key) {
@@ -100,7 +104,7 @@ public class SortedTableMap<K, V> extends AbstractSortedMap<K, V> {
     private Iterable<Entry<K, V>> snapshot(int startIndex, K stop) {
         ArrayList<Entry<K, V>> buffer = new ArrayList<>();
         int j = startIndex;
-        while (j < table.size() && (stop == null || compare(stop, table.get(j))) > 0)
+        while (j < table.size() && (stop == null || compare(stop, table.get(j)) > 0))
             buffer.add(table.get(j++));
         return buffer;
     }
