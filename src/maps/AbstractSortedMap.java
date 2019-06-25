@@ -20,11 +20,4 @@ public abstract class AbstractSortedMap<K,V> extends AbstractMap<K,V> implements
     protected int compare(K k1, MapEntry<K,V> entry){
         return comp.compare(k1,entry.getKey());
     }
-
-    protected int findIndex(K key, int start, int end){
-
-        // To be implemented
-        return 0;
-    }
-
 }

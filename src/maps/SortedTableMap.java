@@ -1,7 +1,4 @@
 package maps;
-
-
-import maps.AbstractMap.MapEntry;
 import priorityqueues.Entry;
 
 import java.util.ArrayList;
@@ -18,7 +15,7 @@ public class SortedTableMap<K, V> extends AbstractSortedMap<K, V> {
         super(comp);
     }
 
-    private int indIndex(K key, int low, int high) {
+    private int findIndex(K key, int low, int high) {
         if (high < low)
             return high + 1;
         int mid = (low + high) / 2;
